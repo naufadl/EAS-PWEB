@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
 $user = "root";
-$password = "xxx";
+$password = "";
 $nama_database = "final_project_luna";
 
 $db = mysqli_connect($server, $user, $password, $nama_database);
