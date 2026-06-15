@@ -7,10 +7,7 @@
     <h2>Form Tambah Transaksi</h2>
     <form method="post" action="../backend/proses_transaksi.php" enctype="multipart/form-data">
         <table cellpadding="8">
-            <tr>
-                <td>Kode Transaksi</td>
-                <td><input type="text" name="kode_transaksi" required></td>
-            </tr>
+            
             <tr>
                 <td>Nama</td>
                 <td><input type="text" name="nama" required></td>
@@ -35,20 +32,6 @@
             <tr>
                 <td>Email</td>
                 <td><input type="email" name="email"></td>
-            </tr>
-            <tr>
-                <td>Status Bayar</td>
-                <td>
-                    <select name="status_bayar">
-                        <option value="pending">Pending</option>
-                        <option value="paid">Paid</option>
-                        <option value="failed">Failed</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Expired At</td>
-                <td><input type="datetime-local" name="expired_at"></td>
             </tr>
             <tr>
                 <td>Foto</td>

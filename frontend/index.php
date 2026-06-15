@@ -2,10 +2,10 @@
 <html>
 <head>
     <title>Aplikasi Transaksi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Data Transaksi</h1>
-    <a href="proses_transaksi.php">Tambah Data</a><br><br>
     
     <table border="1" width="100%">
         <tr>
@@ -13,7 +13,7 @@
             <th>Kode</th>
             <th>Nama</th>
             <th>Status</th>
-            <th colspan="2">Aksi</th>
+            <th colspan="3">Aksi</th>
         </tr>
 
         <?php
@@ -28,7 +28,8 @@
             echo "<td>".$data['kode_transaksi']."</td>";
             echo "<td>".$data['nama']."</td>";
             echo "<td>".$data['status_bayar']."</td>";
-            echo "<td><a href='edit_transaksi.php?id=".$data['id']."'>Ubah</a></td>";
+            echo "<td><a href='#' class='ACC-tombol'>ACC</a></td>";
+            echo "<td><a href='#' class='RJT-tombol'>Reject</a></td>";
             echo "<td><a href='../backend/proses_hapus.php?id=".$data['id']."'>Hapus</a></td>";
             echo "</tr>";}
 
