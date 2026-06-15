@@ -21,7 +21,11 @@ if(isset($_POST['simpan'])){
 
     
     if($query){
-        header('Location: ../frontend/index.php');
+
+        $id_transaksi = mysqli_insert_id($db);
+        header("Location: cetak_pdf.php?id=".$id_transaksi);
+        exit();
+        
     } else {
         echo "Gagal menyimpan!";
     }
