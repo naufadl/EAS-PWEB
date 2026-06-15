@@ -1,8 +1,17 @@
+<?php
+include("config.php");
+
 $nama = $_POST['nama_paket'];
 $harga = $_POST['harga'];
 $stok = $_POST['stok_total'];
+$event_id = $_POST['event_id'];
 
+$query = "INSERT INTO paket_tiket (event_id, nama_paket, harga, stok_total, stok_tersedia) 
+          VALUES ('$event_id', '$nama', '$harga', '$stok', '$stok')";
 
-mysqli_query($db, "INSERT INTO nama_tabel_paket (nama_paket, harga, stok_total, stok_tersedia) 
-                   VALUES ('$nama', '$harga', '$stok', '$stok')");
-header("Location: index_paket.php");
+if (mysqli_query($db, $query)) {
+    header("Location: ../frontend/admin_index_paket.php?id=" . $event_id);
+} else {
+    echo "Error: " . mysqli_error($db);
+}
+?>

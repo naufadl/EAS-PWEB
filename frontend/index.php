@@ -1,39 +1,34 @@
+<?php
+include("../backend/config.php");
+$query = mysqli_query($db, "SELECT * FROM events ORDER BY tanggal_event ASC");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Aplikasi Transaksi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Data Transaksi</h1>
-    
-    <table border="1" width="100%">
-        <tr>
-            <th>Foto</th>
-            <th>Kode</th>
-            <th>Nama</th>
-            <th>Status</th>
-            <th colspan="3">Aksi</th>
-        </tr>
+    <section class="hero">
+        <h1>Malam Nebula: Aurora</h1>
+        <p>Benamkan diri Anda dalam perjalanan audiovisual...</p>
+        <a href="konser.php?id=1" class="btn">Jelajahi Konser</a>
+    </section>
 
-        <?php
-        
-        include("../backend/config.php");
+    <h2>Konser Mendatang</h2>
+    <div class="konser-container">
+        <?php while($data = mysqli_fetch_array($query)) { ?>
+            <div class="card-konser">
+                <img src="uploads/<?= $data['gambar']; ?>" alt="Poster">
+                <h3><?= $data['nama_event']; ?></h3>
 
-        $query = mysqli_query($db, "SELECT * FROM transaksi");
-
-        while($data = mysqli_fetch_array($query)){
-            echo "<tr>";
-            echo "<td><img src='../uploads/".$data['foto']."' width='100'></td>";
-            echo "<td>".$data['kode_transaksi']."</td>";
-            echo "<td>".$data['nama']."</td>";
-            echo "<td>".$data['status_bayar']."</td>";
-            echo "<td><a href='#' class='ACC-tombol'>ACC</a></td>";
-            echo "<td><a href='#' class='RJT-tombol'>Reject</a></td>";
-            echo "<td><a href='../backend/proses_hapus.php?id=".$data['id']."'>Hapus</a></td>";
-            echo "</tr>";}
-
-        ?>
-    </table>
+                <div class="info">
+                    <span><?= $data['tanggal_event']; ?></span>
+                    <span><?= $data['lokasi']; ?></span>
+                </div>
+                <a href="konser.php?id=<?= $data['id']; ?>">Lihat Detail</a>
+            </div>
+        <?php } ?>
+    </div>
 </body>
 </html>

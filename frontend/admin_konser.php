@@ -18,8 +18,7 @@ require_once '../backend/config.php';
     while ($row = mysqli_fetch_assoc($query)) :
         $status = ($row['tanggal_event'] >= date('Y-m-d')) ? 'Aktif' : 'Selesai';
     ?>
-        <div class="card">
-            <span class="badge"><?= $status; ?></span>
+        <div class="card" onclick="window.location.href='admin_index_paket.php?id=<?= $row['id']; ?>';" style="cursor: pointer;">
             <h3><?= htmlspecialchars($row['nama_event']); ?></h3>
             <p>📅 <?= date('d M Y', strtotime($row['tanggal_event'])); ?></p>
             <p>📍 <?= htmlspecialchars($row['lokasi']); ?></p>
