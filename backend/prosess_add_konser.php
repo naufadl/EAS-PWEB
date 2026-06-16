@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['id']) || $_SESSION['role'] != 'admin') {
+    die("Akses ditolak");
+}
+
 include("config.php");
 
 if(isset($_POST['submit'])){

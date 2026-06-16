@@ -1,6 +1,6 @@
 <?php
 
-require('fpdf/fpdf.php');
+require('../fpdf/fpdf.php');
 include('config.php');
 
 $id = $_GET['id'];
@@ -17,6 +17,11 @@ $pdf->Cell(0,10,'BUKTI TRANSAKSI',0,1,'C');
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial','',12);
+
+$pdf->Cell(50,10,'Kode Transaksi');
+$pdf->Cell(5,10,':');
+$pdf->Cell(100,10,'TRX-'.str_pad($data['id'],4,'0',STR_PAD_LEFT));
+$pdf->Ln();
 
 $pdf->Cell(50,10,'Nama');
 $pdf->Cell(5,10,':');

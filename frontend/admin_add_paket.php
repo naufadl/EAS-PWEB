@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if ($_SESSION['role'] != 'admin') {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <form action="../backend/proses_add_paket.php" method="POST">
     <input type="hidden" name="event_id" value="<?= $_GET['event_id']; ?>"> <br>
     <input type="text" name="nama_paket" placeholder="Nama Paket"><br>

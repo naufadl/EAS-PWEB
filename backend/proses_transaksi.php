@@ -23,7 +23,7 @@ if(isset($_POST['simpan'])){
     if($query){
 
         $id_transaksi = mysqli_insert_id($db);
-        header("Location: cetak_pdf.php?id=".$id_transaksi);
+        header("Location: cetak_transaksi.php?id=".$id_transaksi);
         exit();
         
     } else {

@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if ($_SESSION['role'] != 'admin') {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <form action="../backend/prosess_add_konser.php" method="POST" enctype="multipart/form-data">
     Nama Event: <input type="text" name="nama_event" placeholder="Nama Event" required><br>
     Tanggal: <input type="datetime-local" name="tanggal_event" required><br>
