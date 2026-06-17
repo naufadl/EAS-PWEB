@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES ('$event_id', '$nama', '$harga', '$stok', '$stok')";
 
     if (mysqli_query($db, $query)) {
-            header("Location: ../frontend/admin_index_paket.php?id=" . $event_id);
+            header("Location: ../frontend/admin_index_pk.php?id=" . $event_id);
             } else {
             echo "Error: " . mysqli_error($db);
         }}

@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
             VALUES ('$nama', '$tgl', '$lokasi', '$desk', '$nama_file')";
 
     if(mysqli_query($db, $sql)){
-        header("Location: ../frontend/admin_konser.php");
+        header("Location: ../frontend/admin_kr.php");
     } else {
         echo "Error: " . mysqli_error($db);
     }
