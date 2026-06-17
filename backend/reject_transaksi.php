@@ -12,7 +12,7 @@ $id = $_GET['id'];
 mysqli_query(
     $db,
     "UPDATE transaksi
-     SET status_bayar='Ditolak'
+     SET status_bayar='failed'
      WHERE id='$id'"
 );
 

@@ -44,20 +44,20 @@ if ($_SESSION['role'] != 'admin') {
             echo "<td><img src='../uploads/".$data['foto']."' width='100'></td>";
             echo "<td>#TRX-" . str_pad($data['id'], 4, "0", STR_PAD_LEFT) . "</td>";
             echo "<td>".$data['nama']."</td>";
-            echo "<td>".$data['status_bayar']."</td>";
+            echo "<td>".($data['status_bayar'] ? $data['status_bayar'] : "<em>(KOSONG)</em>") ."</td>";
+
             echo "<td>
-            <a href='../backend/acc_transaksi.php?id=".$data['id']."'
-            class='ACC-tombol'>
-            ACC
-            </a>
-            </td>";
+                    <a href='../backend/acc_transaksi.php?id=".$data['id']."' 
+                       class='ACC-tombol' onclick=\"return confirm('Yakin ingin ACC transaksi ini?')\">ACC</a>
+                  </td>";
             echo "<td>
-            <a href='../backend/reject_transaksi.php?id=".$data['id']."'
-            class='RJT-tombol'>
-            Reject
-            </a>
-            </td>";
-            echo "<td><a href='../backend/proses_hapus.php?id=".$data['id']."'>Hapus</a></td>";
+                    <a href='../backend/reject_transaksi.php?id=".$data['id']."' 
+                       class='RJT-tombol' onclick=\"return confirm('Yakin ingin REJECT transaksi ini?')\">Reject</a>
+                  </td>";
+            echo "<td>
+                    <a href='../backend/hapus_transaksi.php?id=".$data['id']."' 
+                       onclick=\"return confirm('Yakin ingin hapus permanen?')\">Hapus</a>
+                  </td>";
             echo "</tr>";}
 
         ?>
