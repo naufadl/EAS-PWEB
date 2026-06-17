@@ -120,7 +120,7 @@ $query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$
 </div>
 
 <!-- FAB tambah paket -->
-<a href="admin_add_pk.php?event_id=<?= $event_id ?>" 
+<a href="admin_add_pk.php?id_event=<?= $id_event ?>" 
    class="ethereal-gradient-btn fixed bottom-8 right-8 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_8px_24px_rgba(205,180,255,0.5)] hover:scale-105 transition-transform">
     <span class="material-symbols-outlined text-white text-[28px]">add</span>
 </a>
