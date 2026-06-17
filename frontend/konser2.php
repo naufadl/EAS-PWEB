@@ -3,7 +3,7 @@ require_once '../backend/config.php';
 
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: index.php");
+    header("Location: konser2.php");
     exit;
 }
 
