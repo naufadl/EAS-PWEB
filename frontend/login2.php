@@ -1,28 +1,9 @@
-<?php
-require_once '../backend/config.php';
-
-
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: index.php");
-    exit;
-}
-
-$event_id = $_GET['id'];
-//data konser
-$query_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$event_id'");
-$event = mysqli_fetch_assoc($query_event);
-
-//data paket tiket
-$query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$event_id'");
-?>
-
 <!DOCTYPE html>
-<html>
-
+<html class="light" lang="id">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title><?= htmlspecialchars($event['nama_event']); ?></title>
+    <title>LUNA - Ethereal Concert Experiences</title>
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
@@ -121,97 +102,54 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
         }
     </script>
 </head>
+<body class="text-on-background font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
 
-<body class="text-on-background font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-
-    <nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/40 shadow-[0_8px_32px_rgba(205,180,255,0.3)]">
-        <div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
-            <a href="index.php" class="font-display-lg text-display-lg font-bold text-primary tracking-tighter">LUNA</a> <!-- GANTI PATH jika index.php bukan di root yang sama -->
-            <div class="flex items-center gap-sm">
-                <a href="login.php" class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hidden md:block">Masuk</a>
-                <a href="register.php" class="font-label-sm text-label-sm bg-primary text-on-primary px-md py-sm rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Daftar</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="relative min-h-[55vh] flex items-end pt-xl overflow-hidden">
-        <img src="uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>" <!-- GANTI PATH: sesuaikan path uploads --> 
-            class="absolute inset-0 w-full h-full object-cover object-top scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent"></div>
-
-        <div class="relative z-10 max-w-container-max mx-auto px-gutter pb-xl w-full">
-            <div class="inline-block px-sm py-xs rounded-full bg-white/20 text-white font-label-sm text-label-sm mb-sm border border-white/30 backdrop-blur-sm">
-                ✨ Live Event
-            </div>
-            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-xs">
-                <?= htmlspecialchars($event['nama_event']); ?>
-            </h1>
-            <p class="font-body-lg text-body-lg text-white/80">
-                <?= htmlspecialchars($event['lokasi']); ?> &nbsp;•&nbsp; <?= date('d M Y', strtotime($event['tanggal_event'])); ?>
-            </p>
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/40 shadow-[0_8px_32px_rgba(205,180,255,0.3)]">
+    <div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
+        <a href="index.php" class="font-display-lg text-display-lg font-bold text-primary tracking-tighter">LUNA</a> <!-- GANTI PATH -->
+        <div class="flex items-center gap-sm">
+            <a href="register.php" class="font-label-sm text-label-sm bg-primary text-on-primary px-md py-sm rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Daftar</a>
         </div>
     </div>
+</nav>
 
-    <div class="max-w-container-max mx-auto px-gutter py-xl grid grid-cols-1 lg:grid-cols-3 gap-xl relative z-10">
+<div class="fixed top-1/4 left-[10%] text-primary/20 pointer-events-none">
+    <span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="fixed bottom-1/3 right-[15%] text-tertiary-container/30 pointer-events-none">
+    <span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
 
-        <!-- Tentang Acara -->
-        <section class="lg:col-span-2 flex flex-col gap-md">
-            <div class="glass-card rounded-lg p-md flex flex-col gap-sm">
-                <h2 class="font-headline-md text-headline-md text-primary">Tentang Acara</h2>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <?= nl2br(htmlspecialchars($event['deskripsi'])); ?>
-                </p>
+<div class="flex-1 flex items-center justify-center px-gutter pt-xl pb-lg">
+    <div class="glass-card rounded-lg p-md w-full max-w-sm flex flex-col gap-md">
+        <div class="text-center flex flex-col gap-xs">
+            <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">Masuk</h1>
+            <p class="font-body-md text-body-md text-on-surface-variant">Selamat datang kembali di LUNA.</p>
+        </div>
+
+        <form action="../backend/proses_login.php" method="POST" class="flex flex-col gap-sm"> <!-- GANTI PATH -->
+            <div class="flex flex-col gap-xs">
+                <label class="font-label-sm text-label-sm text-on-surface-variant">Email</label>
+                <input type="email" name="email" required
+                       class="w-full bg-surface-container border border-outline-variant rounded-full px-md py-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/40 transition">
             </div>
-
-            <div class="glass-card rounded-lg p-md flex flex-col gap-sm">
-                <h3 class="font-headline-md text-headline-md text-primary">Peraturan &amp; Persyaratan</h3>
-                <ul class="flex flex-col gap-xs">
-                    <li class="flex items-start gap-xs font-body-md text-body-md text-on-surface-variant">
-                        <span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
-                        Wajib membawa kartu identitas (KTP/ID fisik).
-                    </li>
-                    <li class="flex items-start gap-xs font-body-md text-body-md text-on-surface-variant">
-                        <span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
-                        Dilarang membawa kamera profesional.
-                    </li>
-                    <li class="flex items-start gap-xs font-body-md text-body-md text-on-surface-variant">
-                        <span class="material-symbols-outlined text-primary mt-[2px] text-[18px]">check_circle</span>
-                        Kebijakan tas transparan diterapkan.
-                    </li>
-                </ul>
+            <div class="flex flex-col gap-xs">
+                <label class="font-label-sm text-label-sm text-on-surface-variant">Password</label>
+                <input type="password" name="password" required
+                       class="w-full bg-surface-container border border-outline-variant rounded-full px-md py-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/40 transition">
             </div>
-        </section>
+            <button type="submit"
+                    class="ethereal-gradient-btn text-on-primary font-label-sm text-label-sm py-sm rounded-full text-center shadow-[0_8px_24px_rgba(205,180,255,0.3)] mt-xs">
+                Masuk
+            </button>
+        </form>
 
-    <!-- Pilihan Tiket -->
-    <section class="flex flex-col gap-sm">
-        <h2 class="font-headline-md text-headline-md text-primary">Pilihan Tiket</h2>
-
-        <?php while ($tiket = mysqli_fetch_assoc($query_paket)) : ?>
-            <div class="glass-card rounded-lg p-md flex flex-col gap-sm hover:-translate-y-1 transition-transform duration-300">
-                <h3 class="font-headline-md text-headline-md text-on-surface"><?= htmlspecialchars($tiket['nama_paket']); ?></h3>
-                <p class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">
-                    Rp <?= number_format($tiket['harga'], 0, ',', '.'); ?>
-                </p>
-                <p class="font-label-sm text-label-sm text-on-surface-variant">
-                    Tersisa: <span class="text-secondary font-semibold"><?= $tiket['stok_tersedia']; ?> tiket</span>
-                </p>
-
-                <?php if ($tiket['stok_tersedia'] > 0) : ?>
-                    <a href="transaksi.php?id_paket=<?= $tiket['id']; ?>" <!-- GANTI PATH jika berbeda -->
-                       class="ethereal-gradient-btn text-on-primary font-label-sm text-label-sm py-sm rounded-full text-center shadow-[0_8px_24px_rgba(205,180,255,0.3)] mt-sm">
-                        Pesan Tiket
-                    </a>
-                <?php else : ?>
-                    <button disabled
-                            class="w-full py-sm rounded-full font-label-sm text-label-sm text-on-surface-variant bg-surface-container cursor-not-allowed mt-sm border border-outline-variant/40">
-                        Habis Terjual
-                    </button>
-                <?php endif; ?>
-            </div>
-        <?php endwhile; ?>
-    </section>
-
+        <p class="text-center font-body-md text-body-md text-on-surface-variant">
+            Belum punya akun?
+            <a href="register.php" class="text-primary hover:underline">Daftar di sini</a> <!-- GANTI PATH -->
+        </p>
+    </div>
 </div>
 
     <footer class="w-full mt-xl bg-surface-container-low dark:bg-surface-container-highest bg-gradient-to-t from-tertiary-container/20 to-transparent">
