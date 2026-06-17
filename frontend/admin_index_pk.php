@@ -9,7 +9,7 @@ $event_id = $_GET['id'];
 
 $result_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$event_id'");
 $event        = mysqli_fetch_assoc($result_event);
-$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$id'");
+$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$event_id'");
 ?>
 <!DOCTYPE html>
 <html lang="id">
