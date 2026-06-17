@@ -7,7 +7,7 @@
     <h2>Form Tambah Transaksi</h2>
     <form method="post" action="../backend/proses_transaksi.php" enctype="multipart/form-data">
         <table cellpadding="8">
-            
+            <tr><input type="hidden" name="id_paket" value="<?= $_GET['id_paket']; ?>"></tr>
             <tr>
                 <td>Nama</td>
                 <td><input type="text" name="nama" required></td>

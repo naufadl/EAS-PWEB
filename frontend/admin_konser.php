@@ -34,6 +34,10 @@ require_once '../backend/config.php';
             <h3><?= htmlspecialchars($row['nama_event']); ?></h3>
             <p>📅 <?= date('d M Y', strtotime($row['tanggal_event'])); ?></p>
             <p>📍 <?= htmlspecialchars($row['lokasi']); ?></p>
+
+            <a href="../backend/delete_konser.php?id=<?= $row['id']; ?>" 
+            onclick="return confirm('Yakin ingin menghapus konser ini?')">
+            [Hapus Konser]</a>
         </div>
     <?php endwhile; ?>
 </div>
