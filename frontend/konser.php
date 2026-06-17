@@ -135,7 +135,7 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
     </nav>
 
     <div class="relative h-[50vh] md:h-[60vh] flex items-end pt-xl overflow-hidden">
-        <img src="uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>"
+        <img src="../uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>"
             class="absolute inset-0 w-full h-full object-cover object-center">
         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent"></div>
