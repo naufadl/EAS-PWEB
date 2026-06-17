@@ -21,7 +21,7 @@ if($user && password_verify($password, $user['password_hash'])){
     $_SESSION['role'] = $user['role'];
 
     if($user['role'] == 'admin'){
-        header("Location: ../frontend/admin_konser.php");
+        header("Location: ../frontend/admin_tr.php");
     } else {
         header("Location: ../frontend/index.php");
     }
