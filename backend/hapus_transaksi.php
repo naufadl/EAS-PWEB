@@ -20,11 +20,11 @@ if (isset($_GET['id'])) {
     $query_hapus = mysqli_query($db, $sql);
 
     if ($query_hapus) {
-        header("Location: ../frontend/admin_transaksi.php?status=sukses");
+        header("Location: ../frontend/admin_tr.php?status=sukses");
     } else {
         echo "Gagal menghapus data: " . mysqli_error($db);
     }
 } else {
-    header("Location: ../frontend/admin_transaksi.php");
+    header("Location: ../frontend/admin_tr.php");
 }
 ?>

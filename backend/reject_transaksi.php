@@ -16,6 +16,6 @@ mysqli_query(
      WHERE id='$id'"
 );
 
-header("Location: ../frontend/admin_transaksi.php");
+header("Location: ../frontend/admin_tr.php");
 exit();
 ?>
