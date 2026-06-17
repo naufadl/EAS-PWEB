@@ -5,11 +5,11 @@ if ($_SESSION['role'] != 'admin') { header("Location: index.php"); exit(); } // 
 require_once '../backend/config.php'; // # GANTI_PATH
 
 if (!isset($_GET['id'])) die("ID Event tidak ditemukan!");
-$event_id = $_GET['id'];
+$id_event = $_GET['id'];
 
-$result_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$event_id'");
+$result_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$id_event'");
 $event        = mysqli_fetch_assoc($result_event);
-$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$event_id'");
+$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$id_event'");
 ?>
 <!DOCTYPE html>
 <html lang="id">
