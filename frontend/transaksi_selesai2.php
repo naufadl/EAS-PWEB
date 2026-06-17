@@ -1,5 +1,23 @@
 <?php
 include("../backend/config.php");
+
+if (!isset($_GET['id'])) {
+    die("ID transaksi tidak ditemukan");
+}
+
+$id_transaksi = (int)$_GET['id'];
+
+$query = mysqli_query(
+    $db,
+    "SELECT * FROM transaksi WHERE id = $id_transaksi"
+);
+
+$data = mysqli_fetch_assoc($query);
+
+if (!$data) {
+    die("Data transaksi tidak ditemukan");
+}
+
 ?>
 <!DOCTYPE html>
 <html class="light" lang="id">

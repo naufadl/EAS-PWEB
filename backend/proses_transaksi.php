@@ -25,7 +25,7 @@ if(isset($_POST['simpan'])){
     
     move_uploaded_file($tmp_foto, "../uploads/" . $nama_foto);
     $sql = "INSERT INTO transaksi (id_paket, kode_transaksi, nama, harga, nik, jenis_kelamin, nomor_hp, email, status_bayar, foto) 
-            VALUES ('$id_paket', '$kode_transaksi', '$nama', '$harga', '$nik', '$jk', '$hp', '$email', 'Pending', '$nama_foto')";
+            VALUES ('$id_paket', '$kode_transaksi', '$nama', '$harga', '$nik', '$jk', '$hp', '$email', 'pending', '$nama_foto')";
             
     $query = mysqli_query($db, $sql);
 
@@ -33,7 +33,7 @@ if(isset($_POST['simpan'])){
     if($query){
 
         $id_transaksi = mysqli_insert_id($db);
-        header("Location: cetak_transaksi.php?id=".$id_transaksi);
+        header("Location: ../frontend/transaksi_selesai2.php?id=".$id_transaksi);
         exit();
         
     } else {
