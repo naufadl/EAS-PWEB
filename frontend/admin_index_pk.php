@@ -99,15 +99,12 @@ $query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$
                 </div>
             </div>
 
-            <!-- Aksi — hubungkan ke backend sesuai kebutuhan -->
             <div class="flex gap-2 mt-auto pt-2 border-t border-white/40">
-                <!-- # GANTI_PATH jika ada halaman edit paket -->
-                <button class="glass-btn-secondary flex-1 py-2 rounded-full text-xs font-semibold text-primary flex items-center justify-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">edit</span> Edit
-                </button>
-                <button class="glass-btn-secondary flex-1 py-2 rounded-full text-xs font-semibold text-primary flex items-center justify-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">tune</span> Kuota
-                </button>
+                <a href="../backend/hapus_paket.php?id=<?= $tiket['id'] ?>&event_id=<?= $event_id ?>"
+                    onclick="return confirm('Yakin hapus paket ini?')"
+                    class="glass-btn-secondary flex-1 py-2 rounded-full text-xs font-semibold text-error flex items-center justify-center gap-1 hover:opacity-80 transition-opacity">
+                        <span class="material-symbols-outlined text-[14px]">delete</span> Hapus
+                </a>
             </div>
         </div>
         <?php endwhile; ?>
