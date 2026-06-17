@@ -140,13 +140,13 @@ $query = mysqli_query($db, "SELECT * FROM daftar_konser ORDER BY tanggal_event A
     <div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10 mt-xl">
         <div class="text-left flex flex-col gap-md">
             <div class="inline-block px-sm py-xs rounded-full bg-primary-container/30 text-on-primary-container font-label-sm text-label-sm w-max border border-white/50 backdrop-blur-sm">
-                ✨ Pengalaman Mendatang Unggulan
+                ✨ Konser Mendatang
             </div>
             <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
-                Malam Nebula:<br/><span class="text-tertiary">Aurora</span>
+                INTO THE WISH :<br/><span class="text-tertiary">Our WISH</span>
             </h1>
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-                Benamkan diri Anda dalam perjalanan audiovisual yang transenden di bawah bintang digital. Penampilan intim oleh Aurora, bermandikan cahaya bioluminesen.
+                NCT WISH hadir di Jakarta dalam rangkaian NCT WISH 1st CONCERT TOUR 'INTO THE WISH : Our WISH'. Sebagai tur konser solo pertama mereka, NCT WISH akan menampilkan berbagai lagu populer, pertunjukan spektakuler, serta pengalaman konser yang memadukan musik, cerita, dan visual panggung yang memukau. Jangan lewatkan kesempatan untuk menjadi bagian dari perjalanan spesial NCT WISH bersama para penggemar di Jakarta.
             </p>
             <div class="flex gap-sm mt-sm">
                 <a href="#konser-section" class="ethereal-gradient-btn text-on-primary font-label-sm text-label-sm px-xl py-sm rounded-full text-center shadow-[0_8px_24px_rgba(205,180,255,0.3)]">
@@ -157,15 +157,15 @@ $query = mysqli_query($db, "SELECT * FROM daftar_konser ORDER BY tanggal_event A
         
         <div class="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-xl overflow-hidden glass-card p-xs group">
             <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent z-10 rounded-xl pointer-events-none"></div>
-            <img alt="Aurora Concert Poster" class="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80"/>
+            <img alt="NCT WISH Poster" class="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="../assets/foto/konser0.jpg"/>
             <div class="absolute bottom-md left-md right-md z-20 text-on-primary">
                 <div class="flex justify-between items-end">
                     <div>
-                        <p class="font-label-sm text-label-sm text-inverse-primary mb-xs">15 NOV • THE OBSERVATORY</p>
-                        <h2 class="font-headline-md text-headline-md">Aurora Live</h2>
+                        <p class="font-label-sm text-label-sm text-inverse-primary mb-xs">18 NOV 2026 • JAKARTA</p>
+                        <h2 class="font-headline-md text-headline-md">NCT WISH</h2>
                     </div>
                     <div class="bg-white/20 backdrop-blur-md rounded-full px-sm py-xs border border-white/30 text-center">
-                        <p class="font-label-sm text-label-sm leading-tight text-white">Tiket<br/>Hampir Habis</p>
+                        <p class="font-label-sm text-label-sm leading-tight text-white">Tiket<br/>Tersedia</p>
                     </div>
                 </div>
             </div>
