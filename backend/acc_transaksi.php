@@ -17,7 +17,7 @@ $update_status = mysqli_query($db, "UPDATE transaksi SET status_bayar = 'paid' W
 
 if ($update_status) {
     mysqli_query($db, "UPDATE paket_tiket SET stok_tersedia = stok_tersedia- 1 WHERE id = '$id_paket' AND stok_tersedia > 0");
-    header("Location: ../frontend/admin_transaksi.php");
+    header("Location: ../frontend/admin_tr.php");
 } else {
     echo "Gagal: " . mysqli_error($db);
 }
