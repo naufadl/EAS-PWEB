@@ -22,7 +22,6 @@ $active_menu = 'transaksi'; // untuk highlight menu sidebar
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Transaksi - LUNA Admin</title>
 <link rel="stylesheet" href="style.css"> <!-- # GANTI_PATH jika nama/lokasi css lama berbeda -->
-<link rel="stylesheet" href="admin_style.css"> <!-- # GANTI_PATH jika lokasi admin_style.css berbeda -->
 </head>
 <body>
 
