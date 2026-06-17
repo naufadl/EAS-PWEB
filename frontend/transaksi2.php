@@ -4,7 +4,7 @@ include("../backend/config.php");
 if (!isset($_GET['id_paket']) || empty($_GET['id_paket'])) {
     header("Location: index.php");
     exit;
-
+}
 $id_paket = (int) $_GET['id_paket'];
 ?>
 <!DOCTYPE html>
