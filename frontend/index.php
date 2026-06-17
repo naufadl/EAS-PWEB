@@ -181,7 +181,7 @@ $query = mysqli_query($db, "SELECT * FROM daftar_konser ORDER BY tanggal_event A
         <?php while($data = mysqli_fetch_array($query)) { ?>
             <div class="glass-card rounded-lg overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-500">
                 <div class="relative aspect-video overflow-hidden p-xs">
-                    <img src="uploads/<?= $data['gambar']; ?>" alt="Poster <?= $data['nama_event']; ?>" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500">
+                    <img src="../uploads/<?= $data['gambar']; ?>" alt="Poster <?= $data['nama_event']; ?>" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute top-sm right-sm bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm px-sm py-xs rounded-full border border-white/30">
                         Live Event
                     </div>
