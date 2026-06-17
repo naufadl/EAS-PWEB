@@ -25,7 +25,7 @@ require_once '../backend/config.php';
 
 <div class="event-container">
     <?php
-    $query = mysqli_query($db, "SELECT * FROM events");
+    $query = mysqli_query($db, "SELECT * FROM daftar_konser");
 
     while ($row = mysqli_fetch_assoc($query)) :
         $status = ($row['tanggal_event'] >= date('Y-m-d')) ? 'Aktif' : 'Selesai';

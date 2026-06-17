@@ -2,18 +2,18 @@
 require_once '../backend/config.php';
 
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: index.php");
     exit;
 }
 
 $event_id = $_GET['id'];
 //data konser
-$query_event = mysqli_query($db, "SELECT * FROM events WHERE id = '$event_id'");
+$query_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$event_id'");
 $event = mysqli_fetch_assoc($query_event);
 
 //data paket tiket
-$query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE event_id = '$event_id'");
+$query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$event_id'");
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE event_id = '$e
                         <p>Tersisa: <?= $tiket['stok_tersedia']; ?> tiket</p>
                         
                         <?php if ($tiket['stok_tersedia'] > 0) : ?>
-                            <a href="form_transaksi.php?id_paket=<?= $tiket['id']; ?>" class="btn-pesan">Pesan Tiket</a>
+                            <a href="transaksi.php?id_paket=<?= $tiket['id']; ?>" class="btn-pesan">Pesan Tiket</a>
                         <?php else : ?>
                             <button class="btn-disabled" disabled>Habis Terjual</button>
                         <?php endif; ?>

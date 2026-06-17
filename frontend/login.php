@@ -1,4 +1,4 @@
-<form action="proses_login.php" method="POST">
+<form action="../backend/proses_login.php" method="POST">
     Email:
     <input type="email" name="email">
 

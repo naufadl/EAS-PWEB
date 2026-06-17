@@ -1,4 +1,4 @@
-<form action="proses_register.php" method="POST">
+<form action="../backend/proses_register.php" method="POST">
     Username:
     <input type="text" name="username" required>
     <br>

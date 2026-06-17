@@ -12,7 +12,7 @@ if ($_SESSION['role'] != 'admin') {
 }
 ?>
 
-<form action="../backend/prosess_add_konser.php" method="POST" enctype="multipart/form-data">
+<form action="../backend/proses_add_konser.php" method="POST" enctype="multipart/form-data">
     Nama Event: <input type="text" name="nama_event" placeholder="Nama Event" required><br>
     Tanggal: <input type="datetime-local" name="tanggal_event" required><br>
     Lokasi: <input type="text" name="lokasi" placeholder="Lokasi" required><br>

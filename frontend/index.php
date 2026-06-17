@@ -1,6 +1,6 @@
 <?php
 include("../backend/config.php");
-$query = mysqli_query($db, "SELECT * FROM events ORDER BY tanggal_event ASC");
+$query = mysqli_query($db, "SELECT * FROM daftar_konser ORDER BY tanggal_event ASC");
 ?>
 
 <!DOCTYPE html>
