@@ -1,5 +1,11 @@
 <?php
 include("../backend/config.php");
+
+if (!isset($_GET['id_paket']) || empty($_GET['id_paket'])) {
+    header("Location: index.php");
+    exit;
+
+$id_paket = (int) $_GET['id_paket'];
 ?>
 <!DOCTYPE html>
 <html class="light" lang="id">
@@ -93,7 +99,7 @@ include("../backend/config.php");
         </div>
 
         <form method="post" action="../backend/proses_transaksi.php" enctype="multipart/form-data" class="flex flex-col gap-sm"> <!-- GANTI PATH -->
-            <input type="hidden" name="id_paket" value="<?= $_GET['id_paket']; ?>">
+            <input type="hidden" name="id_paket" value="<?= htmlspecialchars($id_paket); ?>">
 
             <div class="flex flex-col gap-xs">
                 <label class="font-label-sm text-label-sm text-on-surface-variant">Nama Lengkap</label>

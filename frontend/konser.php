@@ -135,7 +135,7 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
     </nav>
 
     <div class="relative min-h-[55vh] flex items-end pt-xl overflow-hidden">
-        <img src="uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>" <!-- GANTI PATH: sesuaikan path uploads --> 
+        <img src="../uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>" <!-- GANTI PATH: sesuaikan path uploads --> 
             class="absolute inset-0 w-full h-full object-cover object-top scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent"></div>
@@ -198,7 +198,7 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
                 </p>
 
                 <?php if ($tiket['stok_tersedia'] > 0) : ?>
-                    <a href="transaksi.php?id_paket=<?= $tiket['id']; ?>" <!-- GANTI PATH jika berbeda -->
+                    <a href="transaksi.php?id_paket=<?= $tiket['id']; ?>" 
                        class="ethereal-gradient-btn text-on-primary font-label-sm text-label-sm py-sm rounded-full text-center shadow-[0_8px_24px_rgba(205,180,255,0.3)] mt-sm">
                         Pesan Tiket
                     </a>
