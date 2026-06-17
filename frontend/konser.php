@@ -134,9 +134,9 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
         </div>
     </nav>
 
-    <div class="relative min-h-[55vh] flex items-end pt-xl overflow-hidden">
-        <img src="../uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>" <!-- GANTI PATH: sesuaikan path uploads --> 
-            class="absolute inset-0 w-full h-full object-cover object-top scale-105">
+    <div class="relative h-[50vh] md:h-[60vh] flex items-end pt-xl overflow-hidden">
+        <img src="uploads/<?= $event['gambar']; ?>" alt="Poster <?= htmlspecialchars($event['nama_event']); ?>"
+            class="absolute inset-0 w-full h-full object-cover object-center">
         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent"></div>
 
@@ -144,7 +144,7 @@ $query_paket = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$e
             <div class="inline-block px-sm py-xs rounded-full bg-white/20 text-white font-label-sm text-label-sm mb-sm border border-white/30 backdrop-blur-sm">
                 ✨ Live Event
             </div>
-            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-xs">
+            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-xs line-clamp-2">
                 <?= htmlspecialchars($event['nama_event']); ?>
             </h1>
             <p class="font-body-lg text-body-lg text-white/80">
