@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     $query = "DELETE FROM paket_tiket WHERE id = '$id'";
 
     if (mysqli_query($db, $query)) {
-        header("Location: ../frontend/admin_index_pk.php?pesan=berhasil_dihapus");
+        header("Location: ../frontend/admin_index_pk.php?id=$event_id&pesan=berhasil_dihapus");
     } else {
         echo "Error: " . mysqli_error($db);
     }
