@@ -81,10 +81,6 @@ $id_paket = (int) $_GET['id_paket'];
 <nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/40 shadow-[0_8px_32px_rgba(205,180,255,0.3)]">
     <div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
         <a href="index.php" class="font-display-lg text-display-lg font-bold text-primary tracking-tighter">LUNA</a>
-        <div class="flex items-center gap-sm">
-            <a href="login.php" class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hidden md:block">Masuk</a>
-            <a href="register.php" class="font-label-sm text-label-sm bg-primary text-on-primary px-md py-sm rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Daftar</a>
-        </div>
     </div>
 </nav>
 
