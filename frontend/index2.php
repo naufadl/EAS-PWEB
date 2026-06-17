@@ -1,7 +1,7 @@
 <?php
 include("../backend/config.php");
 // Mengambil data event dari database
-$query = mysqli_query($db, "SELECT * FROM events ORDER BY tanggal_event ASC");
+$query = mysqli_query($db, "SELECT * FROM daftar_konser ORDER BY tanggal_event ASC");
 ?>
 
 <!DOCTYPE html>
