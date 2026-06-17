@@ -100,7 +100,7 @@ include("../backend/config.php"); // # GANTI_PATH
                                class="bg-error-container text-on-error-container text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-1 hover:opacity-80 transition-opacity">
                                 <span class="material-symbols-outlined text-[14px]">cancel</span> Reject
                             </a>
-                            <a href="../backend/proses_hapus.php?id=<?= $data['id'] ?>"
+                            <a href="../backend/hapus_transaksi.php?id=<?= $data['id'] ?>"
                                onclick="return confirm('Yakin hapus transaksi ini?')"
                                class="glass-btn-secondary text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-1 text-on-surface-variant">
                                 <span class="material-symbols-outlined text-[14px]">delete</span> Hapus
