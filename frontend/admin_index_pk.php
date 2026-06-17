@@ -5,11 +5,11 @@ if ($_SESSION['role'] != 'admin') { header("Location: index.php"); exit(); } // 
 require_once '../backend/config.php'; // # GANTI_PATH
 
 if (!isset($_GET['id'])) die("ID Event tidak ditemukan!");
-$id_event = $_GET['id'];
+$event_id = $_GET['id'];
 
-$result_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$id_event'");
+$result_event = mysqli_query($db, "SELECT * FROM daftar_konser WHERE id = '$event_id'");
 $event        = mysqli_fetch_assoc($result_event);
-$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$id_event'");
+$query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$id'");
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -120,7 +120,7 @@ $query_tiket  = mysqli_query($db, "SELECT * FROM paket_tiket WHERE id_event = '$
 </div>
 
 <!-- FAB tambah paket -->
-<a href="admin_add_pk.php?id_event=<?= $id_event ?>" 
+<a href="admin_add_pk.php?event_id=<?= $event_id ?>" 
    class="ethereal-gradient-btn fixed bottom-8 right-8 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_8px_24px_rgba(205,180,255,0.5)] hover:scale-105 transition-transform">
     <span class="material-symbols-outlined text-white text-[28px]">add</span>
 </a>

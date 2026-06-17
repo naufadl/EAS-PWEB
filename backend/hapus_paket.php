@@ -8,6 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $event_id = $_GET['event_id'];
 
     $query = "DELETE FROM paket_tiket WHERE id = '$id'";
 
